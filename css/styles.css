@@ -160,6 +160,36 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); line-height: 1.15; font-
 }
 .main-nav a:hover::after { width: 100%; }
 
+/* Services dropdown */
+.main-nav .has-dropdown { position: relative; }
+.main-nav .has-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
+.main-nav .caret { transition: transform .25s ease; }
+.main-nav .has-dropdown:hover .caret,
+.main-nav .has-dropdown:focus-within .caret { transform: rotate(180deg); }
+/* invisible bridge so hover survives the gap to the menu */
+.main-nav .has-dropdown::after {
+  content: ''; position: absolute; left: -12px; right: -12px; top: 100%; height: 16px;
+}
+.dropdown {
+  position: absolute; top: calc(100% + 14px); left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: var(--shadow-lg); padding: 10px; min-width: 290px;
+  opacity: 0; visibility: hidden; transition: opacity .2s ease, transform .2s ease; z-index: 130;
+}
+.main-nav .has-dropdown:hover .dropdown,
+.main-nav .has-dropdown:focus-within .dropdown {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+}
+.dropdown li + li { border-top: 1px solid rgba(217,231,223,.6); }
+.dropdown a {
+  display: block; padding: 15px 18px; border-radius: 11px;
+  font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; color: var(--ink);
+  transition: background .18s ease, color .18s ease, padding-left .18s ease;
+}
+.dropdown a::after { display: none; }
+.dropdown a:hover { background: var(--mint-soft); color: var(--forest); padding-left: 22px; }
+
 .header-cta { display: flex; align-items: center; gap: 16px; }
 .phone-link { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; color: var(--forest); font-family: var(--font-head); }
 .phone-link:hover { color: var(--sea); }
@@ -357,15 +387,14 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); line-height: 1.15; font-
   .service-card h3 { font-size: 1rem; margin-bottom: 10px; }
   .service-link { font-size: .85rem; }
 
-  /* parabolic offsets: high in the middle, lower toward the edges */
-  .services-grid li:nth-child(1) { transform: translateY(102px); }
-  .services-grid li:nth-child(2) { transform: translateY(52px); }
-  .services-grid li:nth-child(3) { transform: translateY(18px); }
+  /* parabolic offsets: high in the middle, lower toward the edges (7 cards) */
+  .services-grid li:nth-child(1) { transform: translateY(110px); }
+  .services-grid li:nth-child(2) { transform: translateY(58px); }
+  .services-grid li:nth-child(3) { transform: translateY(22px); }
   .services-grid li:nth-child(4) { transform: translateY(2px); }
-  .services-grid li:nth-child(5) { transform: translateY(2px); }
-  .services-grid li:nth-child(6) { transform: translateY(18px); }
-  .services-grid li:nth-child(7) { transform: translateY(52px); }
-  .services-grid li:nth-child(8) { transform: translateY(102px); }
+  .services-grid li:nth-child(5) { transform: translateY(22px); }
+  .services-grid li:nth-child(6) { transform: translateY(58px); }
+  .services-grid li:nth-child(7) { transform: translateY(110px); }
 }
 
 /* ---------- Commercial ---------- */
