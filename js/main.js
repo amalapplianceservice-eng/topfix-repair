@@ -2,6 +2,22 @@
 (function () {
   'use strict';
 
+  // Preloader — hide once the page has loaded
+  var preloader = document.getElementById('preloader');
+  if (preloader) {
+    document.documentElement.classList.add('no-scroll');
+    var hidePreloader = function () {
+      preloader.classList.add('is-hidden');
+      document.documentElement.classList.remove('no-scroll');
+      setTimeout(function () { if (preloader.parentNode) preloader.remove(); }, 600);
+    };
+    window.addEventListener('load', function () {
+      setTimeout(hidePreloader, 400); // brief spin moment
+    });
+    // Fallback in case the load event already fired or stalls
+    setTimeout(hidePreloader, 4000);
+  }
+
   // Mobile menu toggle
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('mobile-menu');
@@ -38,9 +54,35 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // Booking form (front-end only demo handling)
-  var form = document.querySelector('.book-form');
-  if (form) {
+  // Booking modal — open from any link/button pointing to #book
+  var bookingModal = document.getElementById('booking-modal');
+  if (bookingModal) {
+    var openModal = function (e) {
+      if (e) e.preventDefault();
+      bookingModal.hidden = false;
+      document.documentElement.classList.add('no-scroll');
+      var firstField = bookingModal.querySelector('input, select');
+      if (firstField) setTimeout(function () { firstField.focus(); }, 60);
+    };
+    var closeModal = function () {
+      bookingModal.hidden = true;
+      document.documentElement.classList.remove('no-scroll');
+    };
+    document.querySelectorAll('a[href="#book"]').forEach(function (a) {
+      a.addEventListener('click', openModal);
+    });
+    var closeBtn = bookingModal.querySelector('.modal-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    bookingModal.addEventListener('click', function (e) {
+      if (e.target === bookingModal) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !bookingModal.hidden) closeModal();
+    });
+  }
+
+  // Booking forms (front-end only demo handling) — applies to inline + modal forms
+  document.querySelectorAll('.book-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) {
@@ -55,7 +97,12 @@
       setTimeout(function () {
         btn.textContent = original;
         btn.disabled = false;
-      }, 3500);
+        var overlay = form.closest('.modal-overlay');
+        if (overlay) {
+          overlay.hidden = true;
+          document.documentElement.classList.remove('no-scroll');
+        }
+      }, 3000);
     });
-  }
+  });
 })();
