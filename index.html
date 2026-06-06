@@ -40,6 +40,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
@@ -75,8 +76,8 @@
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "07:00",
-        "closes": "21:00"
+        "opens": "09:00",
+        "closes": "18:00"
       }
     ],
     "aggregateRating": {
@@ -85,9 +86,9 @@
       "reviewCount": "17"
     },
     "sameAs": [
-      "https://www.facebook.com/topfixrepair",
-      "https://www.instagram.com/topfixrepair",
-      "https://www.yelp.com/biz/topfix-repair-los-angeles"
+      "https://www.facebook.com/profile.php?id=61585171045729",
+      "https://www.instagram.com/topfix_repair/",
+      "https://www.yelp.com/biz/topfix-repair-west-hollywood-5"
     ]
   }
   </script>
@@ -119,7 +120,7 @@
         "name": "Do I need to be home during the repair appointment?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "An adult needs to be present to give our technician access and approve the work, but most repairs are quick and many are completed within about an hour of arrival."
+          "text": "An adult needs to be present to give our technician access and approve the work. Repair time depends on the appliance and the issue, and we'll keep you updated throughout."
         }
       },
       {
@@ -127,7 +128,7 @@
         "name": "Do you repair commercial appliances for restaurants and businesses?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. We service commercial kitchens, laundromats, offices and property managers across LA, including walk-in coolers, commercial ovens, ice machines and stacked laundry systems with priority response."
+          "text": "Yes. We service commercial appliances for restaurants, cafes, laundromats, offices, and property managers across Los Angeles, with priority response for businesses."
         }
       },
       {
@@ -135,7 +136,7 @@
         "name": "What warranty do you offer on repairs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "All TopFix repairs are backed by a 90-day labor warranty and up to a 1-year warranty on installed parts, giving you complete peace of mind."
+          "text": "We install only original parts and back every repair with a 90-day labor warranty."
         }
       }
     ]
@@ -420,7 +421,7 @@
             </p>
 
             <ul class="commercial-list">
-              <li><h3>Restaurants &amp; Kitchens</h3><p>Commercial ovens, ranges, walk-in coolers, freezers, and ice machines.</p></li>
+              <li><h3>Restaurants &amp; Kitchens</h3><p>Commercial ovens, ranges, cooktops, freezers, and ice machines.</p></li>
               <li><h3>Laundromats &amp; Multi-Family</h3><p>Stacked and coin-op washers and dryers serviced to minimize downtime.</p></li>
               <li><h3>Offices &amp; Retail</h3><p>Break-room refrigerators, dishwashers, and ice makers kept reliable.</p></li>
               <li><h3>Property Managers</h3><p>Priority scheduling and one point of contact for every unit you manage.</p></li>
@@ -561,20 +562,35 @@
           </details>
           <details class="faq-item">
             <summary><h3>Do I need to be home during the repair appointment?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><p>An adult needs to be present to give our technician access and approve the work, but most repairs are quick – many are completed within about an hour of arrival.</p></div>
+            <div class="faq-answer"><p>An adult needs to be present to give our technician access and approve the work. Repair time depends on the appliance and the issue, and we'll keep you updated throughout.</p></div>
           </details>
           <details class="faq-item">
             <summary><h3>Do you repair commercial appliances for restaurants and businesses?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><p>Yes. We service commercial kitchens, laundromats, offices, and property managers across LA &ndash; including walk-in coolers, commercial ovens, ice machines, and stacked laundry systems &ndash; with priority response.</p></div>
+            <div class="faq-answer"><p>Yes. We service commercial appliances for restaurants, cafes, laundromats, offices, and property managers across Los Angeles, with priority response for businesses.</p></div>
           </details>
           <details class="faq-item">
             <summary><h3>What warranty do you offer on repairs?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><p>All TopFix repairs are backed by a 90-day labor warranty and up to a 1-year warranty on installed parts, giving you complete peace of mind.</p></div>
+            <div class="faq-answer"><p>We install only original parts and back every repair with a 90-day labor warranty.</p></div>
           </details>
           <details class="faq-item">
             <summary><h3>Which areas of Los Angeles do you serve?</h3><span class="faq-icon" aria-hidden="true"></span></summary>
-            <div class="faq-answer"><p>We serve all of Greater Los Angeles, including Downtown, Hollywood, Silver Lake, Santa Monica, Koreatown, Pasadena, the Valley, and surrounding communities.</p></div>
+            <div class="faq-answer"><p>We serve all of Greater Los Angeles, including Downtown, Hollywood, Silver Lake, Santa Monica, Koreatown, Pasadena, the Valley, and surrounding communities. Check the <a href="#map">service-area map</a> just below.</p></div>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICE AREA MAP ============ -->
+    <section class="map-section section" id="map" aria-labelledby="map-heading">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow">Service area</span>
+          <h2 id="map-heading">Where We Work in Los Angeles</h2>
+          <p class="section-lead">Proudly serving West Hollywood and Greater Los Angeles. Not sure if you're in our area? Just give us a call.</p>
+        </header>
+        <div class="map-embed">
+          <div id="serviceMap" role="img" aria-label="Map of TopFix Repair service area across Greater Los Angeles"></div>
+          <div class="map-overlay" aria-hidden="true">TopFix Repair</div>
         </div>
       </div>
     </section>
@@ -602,11 +618,11 @@
         <a href="#top" class="logo logo-light">
           <img src="assets/logo-mark.png" alt="" class="logo-img" /> <span class="logo-text">TopFix <span>Repair</span></span>
         </a>
-        <p>Reliable residential &amp; commercial appliance repair, proudly serving Greater Los Angeles.</p>
+        <p>Reliable residential &amp; commercial appliance repair, proudly serving Los Angeles and the nearby communities in our service area.</p>
         <div class="footer-social" aria-label="Social media">
-          <a href="https://www.facebook.com/topfixrepair" aria-label="Facebook">FB</a>
-          <a href="https://www.instagram.com/topfixrepair" aria-label="Instagram">IG</a>
-          <a href="https://www.yelp.com/biz/topfix-repair-los-angeles" aria-label="Yelp">Yelp</a>
+          <a href="https://www.yelp.com/biz/topfix-repair-west-hollywood-5" target="_blank" rel="noopener" aria-label="Yelp">Yelp</a>
+          <a href="https://www.facebook.com/profile.php?id=61585171045729" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+          <a href="https://www.instagram.com/topfix_repair/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
         </div>
       </div>
 
@@ -638,7 +654,7 @@
           <li><a href="tel:+14242346210">424-234-6210</a></li>
           <li><a href="mailto:topfixmanagement@gmail.com">topfixmanagement@gmail.com</a></li>
           <li>612 Kings Rd Apt 302<br>West Hollywood, CA 90048</li>
-          <li>Open daily: 7:00 AM &ndash; 9:00 PM</li>
+          <li>Open daily: 9:00 AM &ndash; 6:00 PM</li>
         </ul>
       </div>
     </div>
@@ -661,6 +677,7 @@
     <span>Call Now</span>
   </a>
 
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/main.js" defer></script>
   <!-- Booking modal -->
   <div class="modal-overlay" id="booking-modal" hidden>

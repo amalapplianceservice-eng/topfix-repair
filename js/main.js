@@ -50,6 +50,37 @@
     });
   });
 
+  // Service-area map (Leaflet + dark CARTO tiles, brand-colored zone)
+  var mapEl = document.getElementById('serviceMap');
+  if (mapEl && window.L) {
+    var map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true });
+    map.attributionControl.setPrefix(false);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap, &copy; CARTO'
+    }).addTo(map);
+
+    // Service area — approximate City of Los Angeles outline
+    var serviceArea = [
+      [34.3, -118.67], [34.34, -118.5], [34.34, -118.41], [34.28, -118.29], [34.22, -118.27],
+      [34.16, -118.2], [34.07, -118.16], [34.01, -118.18], [33.96, -118.22], [33.93, -118.24],
+      [33.88, -118.25], [33.82, -118.26], [33.76, -118.27], [33.71, -118.28], [33.7, -118.3],
+      [33.71, -118.33], [33.74, -118.4], [33.8, -118.42], [33.86, -118.43], [33.91, -118.45],
+      [33.95, -118.46], [33.98, -118.48], [34.01, -118.5], [34.03, -118.52], [34.05, -118.54],
+      [34.13, -118.57], [34.2, -118.6], [34.26, -118.64]
+    ];
+    var poly = L.polygon(serviceArea, {
+      color: '#5FBA7A', weight: 2.5, opacity: 1,
+      fillColor: '#2E8B57', fillOpacity: 0.25
+    }).addTo(map);
+
+    L.circleMarker([34.0900, -118.3617], {
+      radius: 9, color: '#5FBA7A', weight: 4, fillColor: '#ffffff', fillOpacity: 1
+    }).addTo(map).bindPopup('TopFix Repair &mdash; West Hollywood, CA');
+
+    map.fitBounds(poly.getBounds(), { padding: [24, 24] });
+  }
+
   // Current year in footer
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
