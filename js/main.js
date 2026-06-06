@@ -83,6 +83,20 @@
 
   // Booking forms (front-end only demo handling) — applies to inline + modal forms
   document.querySelectorAll('.book-form').forEach(function (form) {
+    // Show "Please specify your issue" only when Appliance = Other
+    var applianceSel = form.querySelector('select[name="appliance"]');
+    var issueField = form.querySelector('.issue-field');
+    if (applianceSel && issueField) {
+      var issueInput = issueField.querySelector('input, textarea');
+      var syncIssue = function () {
+        var show = applianceSel.value === 'Other';
+        issueField.hidden = !show;
+        if (issueInput) issueInput.required = show;
+      };
+      applianceSel.addEventListener('change', syncIssue);
+      syncIssue();
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) {

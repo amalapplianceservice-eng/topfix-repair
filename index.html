@@ -281,17 +281,21 @@
           <p class="hero-card-sub">Fast response &mdash; we'll confirm within 15 minutes.</p>
           <form class="book-form" action="#" method="post" novalidate>
             <div class="field">
-              <label for="name">Full name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Doe" autocomplete="name" required />
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required />
             </div>
             <div class="field">
-              <label for="phone">Phone number</label>
-              <input type="tel" id="phone" name="phone" placeholder="424-234-6210" autocomplete="tel" required />
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your Number" autocomplete="tel" required />
             </div>
             <div class="field">
-              <label for="appliance">Appliance</label>
+              <label for="zip">Zip Code</label>
+              <input type="text" id="zip" name="zip" placeholder="Your Zip Code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required />
+            </div>
+            <div class="field">
+              <label for="appliance">Type of Service</label>
               <select id="appliance" name="appliance" required>
-                <option value="" selected disabled>Select an appliance</option>
+                <option value="" selected disabled>Select a service</option>
                 <option>Refrigerator</option>
                 <option>Washer</option>
                 <option>Dryer</option>
@@ -300,6 +304,10 @@
                 <option>Commercial equipment</option>
                 <option>Other</option>
               </select>
+            </div>
+            <div class="field issue-field" hidden>
+              <label for="issue">Please specify your issue</label>
+              <input type="text" id="issue" name="issue" placeholder="Tell us what's going on" />
             </div>
             <button type="submit" class="btn btn-primary btn-block btn-lg">Book My Repair</button>
             <p class="form-note">No spam. We only use your info to schedule your repair.</p>
@@ -684,17 +692,21 @@
       <p class="modal-sub">Fast response &mdash; we'll confirm within 15 minutes.</p>
       <form class="book-form" novalidate>
         <div class="field">
-          <label for="bm-name">Full name</label>
-          <input type="text" id="bm-name" name="name" placeholder="Jane Doe" autocomplete="name" required />
+          <label for="bm-name">Name</label>
+          <input type="text" id="bm-name" name="name" placeholder="Your Name" autocomplete="name" required />
         </div>
         <div class="field">
-          <label for="bm-phone">Phone number</label>
-          <input type="tel" id="bm-phone" name="phone" placeholder="424-234-6210" autocomplete="tel" required />
+          <label for="bm-phone">Phone Number</label>
+          <input type="tel" id="bm-phone" name="phone" placeholder="Your Number" autocomplete="tel" required />
         </div>
         <div class="field">
-          <label for="bm-appliance">Appliance</label>
+          <label for="bm-zip">Zip Code</label>
+          <input type="text" id="bm-zip" name="zip" placeholder="Your Zip Code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required />
+        </div>
+        <div class="field">
+          <label for="bm-appliance">Type of Service</label>
           <select id="bm-appliance" name="appliance" required>
-            <option value="" selected disabled>Select an appliance</option>
+            <option value="" selected disabled>Select a service</option>
             <option>Refrigerator</option>
             <option>Washer</option>
             <option>Dryer</option>
@@ -703,6 +715,10 @@
             <option>Commercial equipment</option>
             <option>Other</option>
           </select>
+        </div>
+        <div class="field issue-field" hidden>
+          <label for="bm-issue">Please specify your issue</label>
+          <input type="text" id="bm-issue" name="issue" placeholder="Tell us what's going on" />
         </div>
         <button type="submit" class="btn btn-primary btn-block btn-lg">Book My Repair</button>
         <p class="form-note">No spam. We only use your info to schedule your repair.</p>

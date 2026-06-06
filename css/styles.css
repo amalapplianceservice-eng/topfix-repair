@@ -272,6 +272,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); line-height: 1.15; font-
 .hero-card-sub { color: var(--muted); font-size: .95rem; margin: 6px 0 22px; }
 .book-form { display: flex; flex-direction: column; gap: 15px; }
 .field { display: flex; flex-direction: column; gap: 6px; }
+.field[hidden] { display: none; }
 .field label { font-size: .85rem; font-weight: 600; color: var(--ink); }
 .field input, .field select {
   font-family: var(--font-body); font-size: 1rem; padding: 13px 14px;
