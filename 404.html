@@ -19,7 +19,7 @@
       radial-gradient(900px 480px at 85% -10%,rgba(95,186,122,.28),transparent 60%),
       radial-gradient(800px 460px at -10% 110%,rgba(46,139,87,.18),transparent 55%),var(--bg);
       color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 22px;}
-    .logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:34px;}
+    .logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:34px;text-decoration:none;}
     .logo img{height:54px;width:auto;}
     .logo span{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.02em;text-transform:uppercase;color:var(--forest);}
     .logo span i{color:var(--sea);font-style:normal;}
@@ -45,7 +45,7 @@
 
   <div class="code">404</div>
   <h1>Page Not Found</h1>
-  <p>Sorry, the page you're looking for doesn't exist or has moved. Let's get you back on track — or just give us a call and we'll help right away.</p>
+  <p>Sorry, the page you're looking for doesn't exist or has moved. Let's get you back on track, or just give us a call and we'll help right away.</p>
 
   <div class="actions">
     <a class="btn btn-primary" href="/">Back to Home</a>
@@ -58,7 +58,23 @@
     <a href="/services/dryer-repair.html">Dryer</a>
     <a href="/services/oven-range-repair.html">Oven &amp; Range</a>
     <a href="/services/dishwasher-repair.html">Dishwasher</a>
+    <a href="/services/freezer-repair.html">Freezer</a>
     <a href="/services/microwave-repair.html">Microwave</a>
   </nav>
+
+  <script>
+    /* Make root-relative links work both on the GitHub Pages project URL and on the custom domain */
+    (function () {
+      if (location.hostname.indexOf('github.io') !== -1) {
+        var seg = location.pathname.split('/').filter(Boolean)[0];
+        if (seg) {
+          var base = '/' + seg;
+          document.querySelectorAll('a[href^="/"]').forEach(function (a) {
+            a.setAttribute('href', base + a.getAttribute('href'));
+          });
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
