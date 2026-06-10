@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://topfixrepair.com/sitemap.xml
+Sitemap: https://topfixrepairla.com/sitemap.xml
