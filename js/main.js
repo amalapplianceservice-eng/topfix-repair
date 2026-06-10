@@ -74,7 +74,7 @@
       fillColor: '#2E8B57', fillOpacity: 0.25
     }).addTo(map);
 
-    L.circleMarker([34.0900, -118.3617], {
+    L.circleMarker([34.08225, -118.37210], {
       radius: 9, color: '#5FBA7A', weight: 4, fillColor: '#ffffff', fillOpacity: 1
     }).addTo(map).bindPopup('TopFix Repair &mdash; West Hollywood, CA');
 
