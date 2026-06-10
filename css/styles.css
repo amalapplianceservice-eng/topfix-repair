@@ -395,13 +395,12 @@ h1, h2 { text-transform: uppercase; }
   .service-link { font-size: .85rem; }
 
   /* parabolic offsets: high in the middle, lower toward the edges (7 cards) */
-  .services-grid li:nth-child(1) { transform: translateY(110px); }
-  .services-grid li:nth-child(2) { transform: translateY(58px); }
-  .services-grid li:nth-child(3) { transform: translateY(22px); }
-  .services-grid li:nth-child(4) { transform: translateY(2px); }
-  .services-grid li:nth-child(5) { transform: translateY(22px); }
-  .services-grid li:nth-child(6) { transform: translateY(58px); }
-  .services-grid li:nth-child(7) { transform: translateY(110px); }
+  .services-grid li:nth-child(1) { transform: translateY(100px); }
+  .services-grid li:nth-child(2) { transform: translateY(48px); }
+  .services-grid li:nth-child(3) { transform: translateY(10px); }
+  .services-grid li:nth-child(4) { transform: translateY(10px); }
+  .services-grid li:nth-child(5) { transform: translateY(48px); }
+  .services-grid li:nth-child(6) { transform: translateY(100px); }
 }
 
 /* ---------- How it works (staircase) ---------- */
